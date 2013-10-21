@@ -5,7 +5,7 @@ app.set('views', __dirname + '/views');
 app.engine('html', require('ejs').renderFile);
 
 app.get('/', function(request, response) {
-	res.render('index.html');
+	response.render('index.html');
 });
 
 var port = process.env.PORT || 5000;
