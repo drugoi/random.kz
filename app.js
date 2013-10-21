@@ -3,6 +3,7 @@ var app = express();
 app.use(express.logger());
 /* app.set('views', __dirname + '/views'); */
 /* app.engine('html', require('ejs').renderFile); */
+app.register('.html', require('jade'));
 
 app.get('/', function(request, response) {
 	response.render('index.html');
