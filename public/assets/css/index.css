@@ -174,3 +174,13 @@ body {
 	font-size: 60px;
 	font-family: 'Open Sans', Helvetica, Verdana, sans-serif;
 }
+
+.b-social__buttons {
+    width: 191px;
+    display: block !important;
+    margin: 70px auto;
+}
+
+.pluso-more {
+    display: none !important;
+}
