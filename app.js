@@ -9,4 +9,4 @@ app.get('/', function (req, res) {
     res.render('index.html');
 });
 
-app.listen(port, '127.0.0.1');
+app.listen(port);
