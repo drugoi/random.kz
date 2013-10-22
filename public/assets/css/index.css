@@ -158,14 +158,19 @@ a:hover {
 
 body {
   background-color: rgb(12, 77, 162);
+  -webkit-backface-visibility:hidden;
+  backface-visibility:hidden;
 }
 
 .b-random__word {
-  position: relative;
-  top: 50%;
-  display: block;
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 24px;
-  font-family: 'Open Sans', Helvetica, Verdana, sans-serif;
+	position: relative;
+	display: block;
+	margin-top: 300px;
+	color: #FFF;
+	text-align: center;
+	text-transform: uppercase;
+	text-shadow: 0 0 15px rgba(0,0,0,0.5);
+	font-weight: bolder;
+	font-size: 60px;
+	font-family: 'Open Sans', Helvetica, Verdana, sans-serif;
 }
