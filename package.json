@@ -2,8 +2,7 @@
   "name": "random-word-on-kazakh",
   "version": "0.0.1",
   "dependencies": {
-    "express": "3.1.x",
-    "ejs": "*"
+    "connect": "*"
   },
   "engines": {
     "node": "0.10.x",
