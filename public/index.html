@@ -13,5 +13,16 @@
 
 	<span class="b-random__word">{{word}}</span>
 	<div class="pluso b-social__buttons" data-background="none;" data-options="medium,square,line,horizontal,nocounter,sepcounter=1,theme=14" data-services="vkontakte,facebook,twitter,google" data-url="http://random.drugoi.kz." data-user="12550628"></div>
+	<script>
+		(function() {
+		  if (window.pluso)if (typeof window.pluso.start == "function") return;
+		  if (window.ifpluso==undefined) { window.ifpluso = 1;
+		    var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
+		    s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
+		    s.src = ('https:' == window.location.protocol ? 'https' : 'http')  + '://share.pluso.ru/pluso-like.js';
+		    var h=d[g]('body')[0];
+		    h.appendChild(s);
+		}})();
+	</script>
 </body>
 </html>
