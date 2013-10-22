@@ -1,186 +1,124 @@
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  margin: 0;
-  padding: 0;
-  outline: none;
-  border: 0;
-  vertical-align: baseline;
-  font: inherit;
-  font-size: 100%;
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video {
+	margin:0;
+	padding:0;
+	outline:none;
+	border:0;
+	vertical-align:baseline;
+	font:inherit;
+	font-size:100%;
 }
 
 html {
-  height: 101%;
+	height:101%;
 }
 
 body {
-  font-size: 62.5%;
-  font-family: Helvetica, 'Open Sans', Verdana, sans-serif;
-  line-height: 1;
+	font-size:62.5%;
+	font-family:Helvetica,'Open Sans',Verdana,sans-serif;
+	line-height:1;
 }
 
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+	display:block;
 }
 
-ol,
-ul {
-  list-style: none;
+ol,ul {
+	list-style:none;
 }
 
-blockquote,
-q {
-  quotes: none;
+blockquote,q {
+	quotes:none;
 }
 
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: '';
-  content: none;
+blockquote:before,blockquote:after,q:before,q:after {
+	content:'';
+	content:none;
 }
 
 strong {
-  font-weight: bold;
+	font-weight:700;
 }
 
 input {
-  outline: none;
+	outline:none;
 }
 
 table {
-  border-spacing: 0;
-  border-collapse: collapse;
+	border-spacing:0;
+	border-collapse:collapse;
 }
 
 img {
-  max-width: 100%;
-  border: 0;
+	max-width:100%;
+	border:0;
 }
 
 a {
-  text-decoration: none;
+	text-decoration:none;
 }
 
 a:hover {
-  text-decoration: underline;
+	text-decoration:underline;
 }
 
 body {
-  background-color: rgb(12, 77, 162);
-  -webkit-backface-visibility:hidden;
-  backface-visibility:hidden;
+	background-color:#0c4da2;
+	-webkit-backface-visibility:hidden;
+	-ms-backface-visibility:hidden;
+	backface-visibility:hidden;
 }
 
 .b-random__word {
-	position: relative;
-	display: block;
-	margin-top: 300px;
-	color: #FFF;
-	text-align: center;
-	text-transform: uppercase;
-	text-shadow: 0 0 15px rgba(0,0,0,0.5);
-	font-weight: bolder;
-	font-size: 60px;
-	font-family: 'Open Sans', Helvetica, Verdana, sans-serif;
+	position:relative;
+	display:block;
+	margin-top:300px;
+	color:#FFF;
+	text-align:center;
+	text-transform:uppercase;
+	text-shadow:0 0 15px rgba(0,0,0,0.5);
+	font-weight:bolder;
+	font-size:60px;
+	font-family:'Open Sans',Helvetica,Verdana,sans-serif;
 }
 
 .b-social__buttons {
-    width: 191px;
-    display: block !important;
-    margin: 70px auto;
+	display:block!important;
+	margin:70px auto;
+	width:191px;
 }
 
 .pluso-more {
-    display: none !important;
+	display:none!important;
+}
+
+progress {
+	background-image:-webkit-linear-gradient(135deg,transparent,transparent 33%,rgba(0,0,0,.1) 33%,rgba(0,0,0,.1) 66%,transparent 66%),-webkit-linear-gradient(top,rgba(255,255,255,.25),rgba(0,0,0,.2)),-webkit-linear-gradient(left,#09c,#f44);
+}
+
+progress[value]::-webkit-progress-bar {
+	border-radius:3px;
+	background-color:#f5f5f5;
+	-webkit-box-shadow:0 2px 3px rgba(0,0,0,.5) inset;
+	box-shadow:0 2px 3px rgba(0,0,0,.5) inset;
+}
+
+progress[value]::-webkit-progress-value {
+	position:relative;
+	border-radius:3px;
+	-webkit-background-size:35px 20px,100% 100%,100% 100%;
+	background-size:35px 20px,100% 100%,100% 100%;
+	-webkit-animation:animate-stripes 5s linear infinite;
+	animation:animate-stripes 5s linear infinite;
+}
+
+@-webkit-keyframes animate-stripes {
+	100% {
+		background-position:-100px 0;
+	}
+}
+
+@keyframes animate-stripes {
+	100% {
+		background-position:-100px 0;
+	}
 }
