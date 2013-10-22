@@ -1,6 +1,12 @@
-var connect = require('connect');
+var express = require('express');
+var app = express.createServer();
 var port = process.env.PORT || 5000;
 
-connect.createServer(
-    connect.static(__dirname); 
-).listen(port);
+app.set('views', __dirname + '/views');
+app.engine('html', require('ejs').renderFile);
+
+app.get('/', function (req, res) {
+    res.render('index.html');
+});
+
+app.listen(port, '127.0.0.1');
