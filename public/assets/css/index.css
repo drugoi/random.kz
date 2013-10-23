@@ -187,17 +187,18 @@ body {
 }
 
 progress[value] {
-	appearance: none;
-	border: none;
-	width: 330px;
-	display: block; 
-	height: 20px;
-	background-color: whiteSmoke;
-	border-radius: 3px;
-	box-shadow: 0 2px 3px rgba(0,0,0,.5) inset;
-	color: royalblue;
-	position: relative;
-	margin: 1.5em auto; 
+  appearance: none;
+  border: none;
+  width: 330px;
+  display: block;
+  height: 20px;
+  background-color: whiteSmoke;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 2px 3px rgba(0,0,0,.5) inset;
+  box-shadow: 0 2px 3px rgba(0,0,0,.5) inset;
+  color: royalblue;
+  position: relative;
+  margin: 1.5em auto;
 }
 
 progress::-webkit-progress-value {
