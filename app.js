@@ -14,12 +14,12 @@ fs.readFile('public/index.html', 'utf-8', indexFile);
 function handleFile(err, data) {
 	if (err) throw err;
     fetchData = JSON.parse(data);
-	fetchWord = fetchData.words[Math.floor(Math.random() * fetchData.words.length)].w;
+	fetchWord = '<span class="b-random__word">' + fetchData.words[Math.floor(Math.random() * fetchData.words.length)].w + '</span>';
 }
 
 function indexFile(err, data) {
 	if (err) throw err;
-	fetchHtml = data.toString().replace('{{kazakh_word}}', fetchWord);
+	fetchHtml = data.toString().replace('<span class="b-random__word">{{kazakh_word}}</span>', fetchWord);
 	fs.writeFile('public/index.html', fetchHtml, function(err){
 		if (err) throw err;
 	});
