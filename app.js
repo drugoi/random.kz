@@ -9,7 +9,7 @@ var fetchHtml;
 
 
 fs.readFile('public/assets/js/words.json', handleFile);
-fs.readFile('public/index.html', 'utf-8', indexFile);
+fs.readFile('public/_index.html', 'utf-8', indexFile);
 
 function handleFile(err, data) {
 	if (err) throw err;
