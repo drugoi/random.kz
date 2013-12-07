@@ -2,6 +2,7 @@ var connect = require('connect');
 var fs = require('fs');
 var port = process.env.PORT || 8080;
 var app = connect().use(connect.static(__dirname + '/public'));
+
 var fetchData;
 var fetchWord;
 var newHtml;
@@ -17,8 +18,8 @@ function getHtml() {
 	oldHtml = fs.readFileSync('public/_index.html', 'utf-8');
 	newHtml = oldHtml.toString().replace('<span class="b-random__word">{{kazakh_word}}</span>', fetchWord);
 }
-createKzWord();
-getHtml();
+app.use(createKzWord);
+app.use(getHtml);
 
 fs.writeFile('public/index.html', newHtml, function (err) {
 	if (err) throw err;
