@@ -8,6 +8,8 @@ var app = connect().use(connect.static(__dirname + '/public'));
 var fetchData = JSON.parse(fs.readFileSync('public/assets/js/words.json', 'utf-8'));
 var fetchWord = fetchData.words[Math.floor(Math.random() * fetchData.words.length)].w;
 
+console.log(fetchWord);
+
 var data = {
     word: fetchWord
 }
