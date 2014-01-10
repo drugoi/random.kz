@@ -1,8 +1,10 @@
 {
   "name": "random-word-on-kazakh",
+  "private": true,
   "version": "0.0.2",
   "dependencies": {
-    "connect": "*"
+    "connect": "~2.12.0",
+    "handlebars": "~1.3.0"
   },
   "engines": {
     "node": "0.10.x",

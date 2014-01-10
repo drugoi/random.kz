@@ -1,36 +1,23 @@
 var connect = require('connect');
 var fs = require('fs');
+var handlebars = require("handlebars");
+
 var port = process.env.PORT || 8080;
 var app = connect().use(connect.static(__dirname + '/public'));
 
-var fetchData;
-var fetchWord;
-var newHtml;
-var oldHtml;
+var fetchData = JSON.parse(fs.readFileSync('public/assets/js/words.json', 'utf-8'));
+var fetchWord = fetchData.words[Math.floor(Math.random() * fetchData.words.length)].w;
 
-function createKzWord() {
-	fetchData = JSON.parse(fs.readFileSync('public/assets/js/words.json', 'utf-8'));
-	fetchWord = '<span class="b-random__word">' + fetchData.words[Math.floor(Math.random() * fetchData.words.length)].w + '</span>';
-	console.log(fetchWord);
-	return fetchWord;
-	next();
+var data = {
+    word: fetchWord
 }
+    
+var templateFile = fs.readFileSync('public/_index.html', 'utf8');
+var compileFile = handlebars.compile(templateFile);
 
-function getHtml() {
-	oldHtml = fs.readFileSync('public/_index.html', 'utf-8');
-	newHtml = oldHtml.toString().replace('<span class="b-random__word">{{kazakh_word}}</span>', fetchWord);
-	return newHtml;
-	next();
-}
-
-function createHtml() {
-	fs.writeFile('public/index.html', newHtml, function (err) {
-		if (err) throw err;
-	});
-}
-
-createKzWord();
-getHtml();
-createHtml();
+fs.writeFile('public/index.html', compileFile(data), function(err) {
+   if (err) throw err;
+    console.log(compileFile);
+});
 
 app.listen(port);
