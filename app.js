@@ -1,25 +1,33 @@
 var connect = require('connect');
+var http = require('http');
+var serveStatic = require('serve-static');
 var fs = require('fs');
-var handlebars = require("handlebars");
+var compression = require('compression');
 
 var port = process.env.PORT || 8080;
-var app = connect().use(connect.static(__dirname + '/public'));
+var app = connect().use(serveStatic(__dirname + '/public'));
+app.use(compression());
 
-var fetchData = JSON.parse(fs.readFileSync('public/assets/js/words.json', 'utf-8'));
-var fetchWord = fetchData.words[Math.floor(Math.random() * fetchData.words.length)].w;
+var fetchData = function() {
+  fs.readFile('public/assets/js/words.json', 'utf-8', function(err, data) {
+    if (err) throw err;
+    var wordsFile = JSON.parse(data);
+    var word = wordsFile.words[Math.floor(Math.random() * wordsFile.words.length)].w;
+    fs.readFile('public/_index.html', 'utf-8', function(err, data) {
+      if (err) throw err;
+      var htmlContent = data.replace('{{word}}', word); 
+      fs.writeFile('public/index.html', htmlContent, function(err) {
+        if (err) throw err;
+      });
+    });
+  });
+};
 
-console.log(fetchWord);
+fetchData();
 
-var data = {
-    word: fetchWord
-}
-    
-var templateFile = fs.readFileSync('public/_index.html', 'utf8');
-var compileFile = handlebars.compile(templateFile);
+app.use(function(req, res){
+	fetchData();
+})
 
-fs.writeFile('public/index.html', compileFile(data), function(err) {
-   if (err) throw err;
-    console.log(compileFile);
-});
-
-app.listen(port);
+//create node.js http server and listen on port
+http.createServer(app).listen(port)
